@@ -318,6 +318,8 @@ struct Metrics {
 	} else if (system) {
 	} else if (overriden) {
 		font.setFamily(family);
+	} else if (!Custom.isEmpty()) {
+		font.setFamily(Custom);
 	} else {
 		font.setFamily("Open Sans"_q);
 	}
@@ -367,6 +369,7 @@ void StartFonts() {
 	style_InitFontsResource();
 
 	const auto name = u"Open Sans"_q;
+	const auto jbMono = u"JetBrains Mono"_q;
 
 	for (const auto &file : QDir(u":/gui/fonts/"_q).entryInfoList()) {
 		LoadCustomFont(file.canonicalFilePath());
@@ -384,8 +387,17 @@ void StartFonts() {
 #endif //  __has_include(<glib.h>)
 	}
 
+	// Set JetBrains Mono as default UI font if loaded successfully.
+	if (QFontInfo(QFont(jbMono)).family().trimmed().startsWith(
+			jbMono,
+			Qt::CaseInsensitive)) {
+		SetCustomFont(jbMono);
+		LOG(("Font: using JetBrains Mono as default UI font."));
+	}
+
 	QFont::insertSubstitution(name, u"Vazirmatn UI NL"_q);
 
+	// CJK fallback for Open Sans (base font).
 #ifdef Q_OS_MAC
 	const auto list = QStringList{
 		u"PingFang SC"_q,
@@ -403,6 +415,28 @@ void StartFonts() {
 		u"WenQuanYi Micro Hei"_q,
 	};
 	QFont::insertSubstitutions(name, list);
+#endif
+
+	// CJK fallback for JetBrains Mono (custom default font).
+	QFont::insertSubstitution(jbMono, u"Vazirmatn UI NL"_q);
+#ifdef Q_OS_MAC
+	// macOS: PingFang SC is built-in, Qt falls back to it automatically.
+	const auto jbList = QStringList{
+		u"PingFang SC"_q,
+		u"STIXGeneral"_q,
+		u".SF NS Text"_q,
+		u"Helvetica Neue"_q,
+		u"Lucida Grande"_q,
+	};
+	QFont::insertSubstitutions(jbMono, jbList);
+#elif defined(Q_OS_WIN)
+	QFont::insertSubstitution(jbMono, u"Microsoft YaHei UI"_q);
+#else // Linux
+	const auto jbList = QStringList{
+		u"Noto Sans CJK SC"_q,
+		u"WenQuanYi Micro Hei"_q,
+	};
+	QFont::insertSubstitutions(jbMono, jbList);
 #endif
 }
 
