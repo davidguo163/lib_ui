@@ -6,5 +6,7 @@
     <file>OpenSans-SemiBoldItalic.ttf</file>
     <file>Vazirmatn-UI-NL-Regular.ttf</file>
     <file>Vazirmatn-UI-NL-SemiBold.ttf</file>
+    <file>JetBrainsMono-Regular.ttf</file>
+    <file>JetBrainsMono-Bold.ttf</file>
   </qresource>
 </RCC>

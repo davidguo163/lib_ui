@@ -138,14 +138,19 @@ bool LoadCustomFont(const QString &filePath) {
 
 [[nodiscard]] QString MonospaceFont() {
 	static const auto family = [&]() -> QString {
+		// Prefer bundled JetBrains Mono (loaded from qrc).
+		const auto jbMono = u"JetBrains Mono"_q;
+		const auto resolved = QFontInfo(QFont(jbMono)).family();
+		if (resolved.startsWith(jbMono, Qt::CaseInsensitive)) {
+			return jbMono;
+		}
+
 		const auto manual = ManualMonospaceFont();
 		const auto system = SystemMonospaceFont();
 
 #ifdef Q_OS_WIN
-		// Prefer our monospace font.
 		const auto useSystem = manual.isEmpty();
 #else // Q_OS_WIN
-		// Prefer system monospace font.
 		const auto metrics = QFontMetrics(QFont(system));
 		const auto useSystem = manual.isEmpty()
 			|| (metrics.horizontalAdvance(QChar('i')) == metrics.horizontalAdvance(QChar('W')));
@@ -383,13 +388,22 @@ void StartFonts() {
 
 #ifdef Q_OS_MAC
 	const auto list = QStringList{
+		u"PingFang SC"_q,
 		u"STIXGeneral"_q,
 		u".SF NS Text"_q,
 		u"Helvetica Neue"_q,
 		u"Lucida Grande"_q,
 	};
 	QFont::insertSubstitutions(name, list);
-#endif // Q_OS_MAC
+#elif defined(Q_OS_WIN)
+	QFont::insertSubstitution(name, u"Microsoft YaHei UI"_q);
+#else // Linux
+	const auto list = QStringList{
+		u"Noto Sans CJK SC"_q,
+		u"WenQuanYi Micro Hei"_q,
+	};
+	QFont::insertSubstitutions(name, list);
+#endif
 }
 
 void DestroyFonts() {
