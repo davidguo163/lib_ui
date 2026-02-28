@@ -5,19 +5,19 @@
 // https://github.com/desktop-app/legal/blob/master/LEGAL
 //
 
-// basic
-windowBg: #ffffff; // white: fallback for background
-windowFg: #000000; // black: fallback for text
-windowBgOver: #f1f1f1; // light gray: fallback for background with mouse over
-windowBgRipple: #e5e5e5; // darker gray: fallback for ripple effect
-windowFgOver: windowFg; // black: fallback for text with mouse over
-windowSubTextFg: #999999; // gray: fallback for additional text
-windowSubTextFgOver: #919191; // darker gray: fallback for additional text with mouse over
-windowBoldFg: #222222; // dark gray: fallback for bold text
-windowBoldFgOver: #222222; // dark gray: fallback for bold text with mouse over
-windowBgActive: #40a7e3; // bright blue: fallback for blue filled active areas
-windowFgActive: #ffffff; // white: fallback for text on active areas
-windowActiveTextFg: #168acd; // online blue: fallback for active text like online status
+// basic — Run Light palette
+windowBg: #F9FDFF; // Run Light: main background
+windowFg: #1A2B3C; // Run Light: main text
+windowBgOver: #E3F3FA; // Run Light: hover background
+windowBgRipple: #D6E8F0; // Run Light: ripple effect
+windowFgOver: windowFg; // Run Light: text with mouse over
+windowSubTextFg: #7A8FA0; // Run Light: secondary text
+windowSubTextFgOver: #1A2B3C; // Run Light: secondary text hover
+windowBoldFg: #1A2B3C; // Run Light: bold text
+windowBoldFgOver: #1A2B3C; // Run Light: bold text hover
+windowBgActive: #5DADE2; // Run Light: sky blue active areas
+windowFgActive: #ffffff; // white: text on active areas
+windowActiveTextFg: #2E86C1; // Run Light: online/active text
 windowShadowFg: #000000; // black: fallback for shadow
 windowShadowFgFallback: #f1f1f1; // gray: fallback for shadow without opacity
 
@@ -30,18 +30,18 @@ imageBgTransparent: #ffffff; // image background when displaying an image with o
 
 // widgets
 activeButtonBg: windowBgActive; // default active button background
-activeButtonBgOver: #39a5db; // default active button background with mouse over
-activeButtonBgRipple: #2095d0; // default active button ripple effect
+activeButtonBgOver: #428CCF; // Run Light: active button hover
+activeButtonBgRipple: #3078B8; // Run Light: active button ripple
 activeButtonFg: windowFgActive; // default active button text
 activeButtonFgOver: activeButtonFg; // default active button text with mouse over
 activeButtonSecondaryFg: #cceeff; // default active button additional text (selected messages counter in forward / delete buttons)
 activeButtonSecondaryFgOver: activeButtonSecondaryFg; // default active button additional text with mouse over
-activeLineFg: #37a1de; // default active line (like code input field bottom border when you log in and field is focused)
+activeLineFg: #5DADE2; // Run Light: active line
 activeLineFgError: #e48383; // default active line for error state (like code input field bottom border when you log in and you've entered incorrect code)
 
 lightButtonBg: windowBg; // default light button background (like buttons in boxes)
-lightButtonBgOver: #e3f1fa; // default light button background with mouse over
-lightButtonBgRipple: #c9e4f6; // default light button ripple effect
+lightButtonBgOver: #E3F3FA; // Run Light: light button hover
+lightButtonBgRipple: #D6E8F0; // Run Light: light button ripple
 lightButtonFg: windowActiveTextFg; // default light button text
 lightButtonFgOver: lightButtonFg; // default light button text with mouse over
 
@@ -73,7 +73,7 @@ radialBg: #00000056; // default radial loader background (like in Media Viewer w
 placeholderFg: windowSubTextFg; // default input field placeholder when field is not focused (like in phone input field when you log in)
 placeholderFgActive: #aaaaaa; // default input field placeholder when field is focused
 inputBorderFg: #e0e0e0; // default input field bottom border (like in code input field when you log in and field is not focused)
-filterInputBorderFg: #54c3f3; // default rounded input field border (like in chats list search field when field is focused)
+filterInputBorderFg: #5DADE2; // Run Light: search field border
 filterInputActiveBg: windowBg; // default rounded input field active background (like in chats list search field when field is focused)
 filterInputInactiveBg: windowBgOver; // default rounded input field inactive background (like in chats list search field when field is inactive)
 checkboxFg: #b3b3b3; // default unchecked checkbox rounded rectangle
@@ -209,7 +209,7 @@ dialogsUnreadFgOver: dialogsUnreadFg; // chat list unread badge text with mouse 
 dialogsArchiveFgOver: #525252 | dialogsNameFgOver; // chat list archive name text with mouse over
 dialogsScamFgOver: dialogsDraftFgOver; // chat list scam label with mouse over
 
-dialogsBgActive: #419fd9; // chat list background for current (active) chat
+dialogsBgActive: #5DADE2; // Run Light: active chat background
 dialogsNameFgActive: windowFgActive; // chat list name text for current (active) chat
 dialogsChatIconFgActive: dialogsNameFgActive; // chat list group or channel icon for current (active) chat
 dialogsDateFgActive: windowFgActive; // chat list date text for current (active) chat
@@ -331,32 +331,32 @@ settingsIconFg: #ffffff; // settings icon shape
 // hue and saturation of the average background color if user chooses
 // some other (not bundled to this color theme) background. If the
 // bundled background is used those colors are not adjusted in any way.
-historyScrollBarBg: #517c417a; // scroll bar current rectangle, the bar itself in the chat view (adjusted)
-historyScrollBarBgOver: #517c41bc; // scroll bar current rectangle with mouse over it in the chat view (adjusted)
-historyScrollBg: #517c414c; // scroll bar background (adjusted)
-historyScrollBgOver: #517c416b; // scroll bar background with mouse over the scroll bar (adjusted)
+historyScrollBarBg: #5DADE27a; // Run Light: chat scroll bar
+historyScrollBarBgOver: #5DADE2bc; // Run Light: chat scroll bar hover
+historyScrollBg: #5DADE24c; // Run Light: chat scroll background
+historyScrollBgOver: #5DADE26b; // Run Light: chat scroll background hover
 
 msgInBg: windowBg; // inbox message background
-msgInBgSelected: #c2dcf2; // inbox selected message background (and background of selected text in those messages)
-msgOutBg: #effdde; // outbox message background
-msgOutBgSelected: #b7dbdb; // outbox selected message background (and background of selected text in those messages)
+msgInBgSelected: #E3F3FA; // Run Light: inbox selected message background
+msgOutBg: #D4F1F4; // Run Light: outbox message background
+msgOutBgSelected: #B8E6EA; // Run Light: outbox selected message background
 msgSelectOverlay: #358cd44c; // overlay which is filling the media parts of selected messages (like in selected photo message)
 msgStickerOverlay: #358cd47f; // overlay which is filling the selected sticker message
 msgInServiceFg: windowActiveTextFg; // inbox message information text (like information about a forwarded message original sender)
 msgInServiceFgSelected: windowActiveTextFg; // inbox selected message information text (like information about a forwarded message original sender)
-msgOutServiceFg: #45a32d; // outbox message information text (like information about a forwarded message original sender)
-msgOutServiceFgSelected: #469992; // outbox message information text (like information about a forwarded message original sender)
+msgOutServiceFg: #2E86C1; // Run Light: outbox service text
+msgOutServiceFgSelected: #1A6DA0; // Run Light: outbox service text selected
 msgInShadow: #748ea229; // inbox message shadow (below the bubble)
 msgInShadowSelected: #548dbb29; // inbox selected message shadow (below the bubble)
-msgOutShadow: #3ac3461d; // outbox message shadow (below the bubble)
-msgOutShadowSelected: #37a78d22; // outbox selected message shadow (below the bubble)
+msgOutShadow: #5DADE21d; // Run Light: outbox shadow
+msgOutShadowSelected: #2E86C122; // Run Light: outbox shadow selected
 msgInDateFg: #a0acb6; // inbox message time text
 msgInDateFgSelected: #6a9cc5; // inbox selected message time text
-msgOutDateFg: #6db566; // outbox message time text
-msgOutDateFgSelected: #56b2a6; // outbox selected message time text
+msgOutDateFg: #5DADE2; // Run Light: outbox time text
+msgOutDateFgSelected: #2E86C1; // Run Light: outbox time text selected
 msgServiceFg: windowFgActive; // service message text (like date dividers or service message about the group title being changed)
-msgServiceBg: #517c417f; // service message background (like in a service message about group title being changed) (adjusted)
-msgServiceBgSelected: #96b38ba2; // service message selected text background (like in a service message about group title being changed) (adjusted)
+msgServiceBg: #5DADE288; // Run Light: service message background
+msgServiceBgSelected: #5DADE2AA; // Run Light: service message selected background
 msgInReplyBarColor: activeLineFg; // inbox message reply outline
 msgInReplyBarSelColor: activeLineFg; // inbox selected message reply outline
 msgOutReplyBarColor: #5eb854; // outbox message reply outline

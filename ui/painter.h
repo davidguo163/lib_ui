@@ -109,7 +109,6 @@ public:
 		static constexpr QPainter::RenderHint Hints[] = {
 			QPainter::Antialiasing,
 			QPainter::SmoothPixmapTransform,
-			QPainter::TextAntialiasing
 		};
 
 		const auto hints = _painter.renderHints();

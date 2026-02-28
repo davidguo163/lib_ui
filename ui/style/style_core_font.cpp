@@ -324,6 +324,8 @@ struct Metrics {
 		font.setFamily("Open Sans"_q);
 	}
 	font.setPixelSize(size);
+	font.setHintingPreference(QFont::PreferFullHinting);
+	font.setStyleStrategy(QFont::PreferQuality);
 
 	const auto adjust = (overriden || system);
 	const auto metrics = ComputeMetrics(font, adjust);
@@ -387,13 +389,8 @@ void StartFonts() {
 #endif //  __has_include(<glib.h>)
 	}
 
-	// Set JetBrains Mono as default UI font if loaded successfully.
-	if (QFontInfo(QFont(jbMono)).family().trimmed().startsWith(
-			jbMono,
-			Qt::CaseInsensitive)) {
-		SetCustomFont(jbMono);
-		LOG(("Font: using JetBrains Mono as default UI font."));
-	}
+	// JetBrains Mono stays available via MonospaceFont() for code blocks.
+	// Default UI font is Open Sans (proper proportional UI typeface).
 
 	QFont::insertSubstitution(name, u"Vazirmatn UI NL"_q);
 
